@@ -1,22 +1,19 @@
 ﻿using CityInfo.API.Entities;
 using Microsoft.EntityFrameworkCore;
+
 namespace CityInfo.API.DbContexts
 {
-    public class CityInfoContext: DbContext
+    public class CityInfoContext : DbContext
     {
-        public DbSet<City> Citys { get; set;}
-        public DbSet<PointOfInterest> PointOfInterests { get; set;}
+        public DbSet<City> Cities { get; set; }
+        public DbSet<PointOfInterest> PointsOfInterest { get; set; }
 
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public CityInfoContext(DbContextOptions<CityInfoContext> options)
+            : base(options)
         {
-            optionsBuilder.UseSqlite("connectionstring");
-            base.OnConfiguring(optionsBuilder);
         }
 
-
-
-
+       
 
     }
 }
